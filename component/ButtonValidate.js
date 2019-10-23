@@ -20,8 +20,8 @@ class ButtonValidate extends Component {
     }
 
     game() {
-        score = parseInt(this.props.parentData.score, 10);
-        input = parseInt(this.props.parentData.input, 10);
+        let score = parseInt(this.props.parentData.score, 10);
+        let input = parseInt(this.props.parentData.input, 10);
 
         if(input > score) {
             sentence = input + ' est trop grand, manges tes morts.';
