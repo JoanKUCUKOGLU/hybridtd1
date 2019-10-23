@@ -4,7 +4,11 @@ import NumInput from './component/NumInput';
 import ButtonValidate from './component/ButtonValidate';
 import ColorSelector from './component/ColorSelector';
 
-export default class App extends Component {
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+
+
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -37,6 +41,15 @@ export default class App extends Component {
     );
   }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+});
+
+export default createAppContainer(AppNavigator);
+
 
 const styles = StyleSheet.create({
   container: {

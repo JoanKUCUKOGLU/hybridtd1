@@ -22,13 +22,14 @@ class ButtonValidate extends Component {
     game() {
         let score = parseInt(this.props.parentData.score, 10);
         let input = parseInt(this.props.parentData.input, 10);
+        let sentence;
 
         if(input > score) {
             sentence = input + ' est trop grand, manges tes morts.';
         } else if(input < score) {
             sentence = input + ' est trop petit, manges tes morts.';
         } else {
-            sentence = 'Félicitations, tu as trouver ' + input + ', gros fils de pute.'; 
+            sentence = 'Félicitation, tu as trouver ' + input + ', gros fils de pute.';
         }
         this.sendData(sentence);
     }
