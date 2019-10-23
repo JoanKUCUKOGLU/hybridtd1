@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button } from 'react-native'
+import { StyleSheet, View, Button } from 'react-native';
 
 class ButtonValidate extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
 
     sendData = (sentence) => {
         this.props.parentCallback(sentence);
@@ -20,8 +25,9 @@ class ButtonValidate extends Component {
     }
 
     game() {
-        score = parseInt(this.props.parentData.score, 10);
-        input = parseInt(this.props.parentData.input, 10);
+        let score = parseInt(this.props.parentData, 10);
+        let input = parseInt(this.props.parentData.input, 10);
+        let sentence;
 
         if(input > score) {
             sentence = input + ' est trop grand, manges tes morts.';

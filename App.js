@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import NumInput from './component/NumInput';
-import ButtonValidate from './component/ButtonValidate';
-import ColorSelector from './component/ColorSelector';
+import { StyleSheet, View } from 'react-native';
+import Home from './component/Home'
+import {createStackNavigator} from "react-navigation-stack";
+import About from "./component/About";
+import {createAppContainer} from "react-navigation";
 
-export default class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      score: Math.floor(Math.random() * Math.floor(1000 - 1)),
-      input: "",
-      sentence: ""
-    };
-    console.log(this.state.score);
-  }
+const NaviInterface = createStackNavigator({
+  Home:  {screen: Home},
+  About: {screen: About}
+});
 
-  callbackInput = (childData) => {
-    this.setState({ input: childData });
-  };
+const Navigation = createAppContainer(NaviInterface);
 
-  callbackRep = (childData) => {
-    this.setState({ sentence: childData });
-  };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <NumInput parentCallback={this.callbackInput}></NumInput>
-        <Text style={styles.text}> {this.state.sentence} </Text>
-        <ButtonValidate parentCallback={this.callbackRep} parentData={this.state}></ButtonValidate>
-        <View style={ styles.colorSelector }>
-          <ColorSelector></ColorSelector>
-        </View>
-      </View>
-    );
-  }
+export default function App () {
+
+  return (
+        <Home/>
+  );
+
 }
 
 const styles = StyleSheet.create({
@@ -52,3 +36,4 @@ const styles = StyleSheet.create({
     marginTop: 200
   }
 });
+

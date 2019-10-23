@@ -3,8 +3,8 @@ import { StyleSheet, View, TextInput } from 'react-native'
 
 class NumInput extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor() {
+        super(props);
         this.state = { input: '' }
     }
 
